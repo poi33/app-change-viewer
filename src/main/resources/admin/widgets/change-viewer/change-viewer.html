@@ -1,0 +1,14 @@
+<widget>
+    <h1>History</h1>
+    <div id="history">
+        <div class="entry" data-th-each="data: ${entries}">
+            <h2 data-th-text="${data.type}"></h2>
+            <time data-th-attr="datetime=${data.time}" data-th-text="${data.timestamp}"></time>
+            <p data-th-text="${data.user}"></p>
+            <p data-th-text="${data.branch}"></p>
+            <!-- <div class="nodes" data-th-each="object: ${data.objects}">
+                <p data-th-text="${object}"></p>
+            </div> -->
+        </div>
+    </div>
+</widget>
