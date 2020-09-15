@@ -2,6 +2,7 @@ const thymeleaf = require("/lib/thymeleaf");
 const auditlog = require("/lib/xp/auditlog");
 const nodeLib = require("/lib/xp/node");
 const auditData = require("/lib/auditlog-data");
+const portal = require("/lib/xp/portal");
 
 const view = resolve("change-viewer.html");
 
@@ -42,8 +43,13 @@ exports.get = function (req) {
         logEntries.push(data);
     });
 
+    let cssUrl = portal.assetUrl({
+        path: "/change-viewer.css"
+    });
+
     let model = {
         entries: logEntries,
+        cssUrl
     };
 
     return {

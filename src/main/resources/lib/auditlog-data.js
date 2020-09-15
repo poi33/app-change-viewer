@@ -17,10 +17,17 @@ function processData(entry) {
         })
     }); */
 
+    log.info(entry.time);
+
+    let formatedTime = entry.time.split('.')[0];
+    formatedTime = formatedTime.replace('T', " ");
+
+    //let time = `${entryTime.getFullYear()}-${entryTime.getMonth()+1}-${entryTime.getDate()} ${entryTime.getHours()}:${entryTime.getMinutes()}`;
+
     let data = {
         contentId,
         user,
-        timestamp: entry.time,
+        timestamp: formatedTime,
         type: getAuditType(entry.type),
     };
 
